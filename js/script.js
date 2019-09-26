@@ -88,6 +88,7 @@ function reset() {
     val1 = 0;
     val2 = 0;
     oper = '';
+    updReadout();
 }
 
 function init() {
@@ -145,6 +146,10 @@ function init() {
         }
         app.appendChild(row);
     }
+    app.appendChild(new Button(
+        'f',
+        mkTag('div', 'col border rounded display-4', 'f', 'height: 100px')
+    ).html)
 
 
     // appending
