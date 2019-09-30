@@ -20,7 +20,8 @@ function mkTag(tag, clss, id, style) {
 
 function updReadout(d) {
     if (d.length > 12) {
-        
+        len = d.length - 12;
+        d = d.slice(len);
     }
     document.getElementById('Display').textContent = d;
 }
@@ -94,7 +95,7 @@ function init() {
     eqbtn.html.addEventListener('click', function () {
         operate();
         // p();
-        updReadout(val1);
+        updReadout(val1.toString());
         p();
     })
 
