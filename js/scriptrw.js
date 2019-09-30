@@ -1,7 +1,7 @@
 var val1 = 0;
 var val2 = 0;
-var oper = '';
-var working = '';
+var oper = '+';
+var working = '0';
 
 var app = document.getElementById('app');
 
@@ -67,14 +67,14 @@ class fncBtn extends Button {
     constructor(valu, html) {
         super(valu, html);
         this.html.addEventListener('click', function () {
+            operate();
             oper = valu;
             // console.log(oper);
-            // operate();
-            if (val1 === 0) {
-                val1 = parseFloat(working);
-            }
+            // if (val1 === 0) {
+            //     val1 = parseFloat(working);
+            // }
             updReadout(val1 + valu);
-            working = '';
+            working = '0';
             p();
         });
     }
@@ -96,14 +96,15 @@ function init() {
         operate();
         // p();
         updReadout(val1.toString());
+        working = '0';
         p();
     })
 
     let clrbtn = new Button('c');
     clrbtn.html.addEventListener('click', function () {
         val1 = 0;
-        oper = '';
-        working = '';
+        oper = '+';
+        working = '0';
         updReadout('');
         p();
     })
