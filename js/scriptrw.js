@@ -19,6 +19,9 @@ function mkTag(tag, clss, id, style) {
 }
 
 function updReadout(d) {
+    if (d.length > 12) {
+        
+    }
     document.getElementById('Display').textContent = d;
 }
 
@@ -63,10 +66,13 @@ class fncBtn extends Button {
     constructor(valu, html) {
         super(valu, html);
         this.html.addEventListener('click', function () {
-            operate();
-            updReadout(val1);
             oper = valu;
             // console.log(oper);
+            // operate();
+            if (val1 === 0) {
+                val1 = parseFloat(working);
+            }
+            updReadout(val1 + valu);
             working = '';
             p();
         });
@@ -87,16 +93,18 @@ function init() {
     let eqbtn = new Button('=');
     eqbtn.html.addEventListener('click', function () {
         operate();
+        // p();
         updReadout(val1);
-        working = '';
         p();
     })
 
     let clrbtn = new Button('c');
-    eqbtn.html.addEventListener('click', function () {
+    clrbtn.html.addEventListener('click', function () {
         val1 = 0;
+        oper = '';
         working = '';
         updReadout('');
+        p();
     })
 
     let calcGrid = [];
