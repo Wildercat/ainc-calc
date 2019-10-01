@@ -97,6 +97,7 @@ function init() {
         // p();
         updReadout(val1.toString());
         working = '0';
+        oper = '+';
         p();
     })
 
